@@ -14,15 +14,7 @@ export default function LoginFlow() {
     return (
         <div>
             {user ? (
-              <div className="h-screen pt-20 flex justify-center">
                 <Home />
-                {/* <Button
-                  variant="contained"
-                  type="submit"
-                  style={{ width: 200, height: 55, textTransform: 'none', fontSize: 16 }}
-                  onClick={handleSignOut}
-                >サインアウト</Button> */}
-              </div>
             ) : (
               <div className="flex items-center justify-center">
                 <GoogleForm />

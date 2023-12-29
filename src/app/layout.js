@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ja">
       <body className={fnt.className}>
-        <div className='bg-green-300 flex justify-between fixed top-0 left-0 right-0 z-40'>
+        <div className='bg-green-300 flex justify-between fixed top-0 left-0 right-0 z-30'>
           <h1 className='pl-4 py-4 text-2xl'>CommitTimer</h1>
           <div className='flex items-center pr-3'>
             <ul className='flex'>
