@@ -9,7 +9,7 @@ import db from "@/components/FireBase";
 import { collection, getDocs } from "firebase/firestore";
 
 
-export default function timerPage() {
+export default function TimerPage() {
     const [userProfiles, setUserProfiles] = useState([]);
 
     const [user] = useAuthState(auth);
