@@ -31,12 +31,12 @@ export default function Home() {
     const handleNewUser = () => {
         setDoc(doc(db, "profiles", user.uid), {
             userId: user.uid,
-            name: "未設定",
-            longGoal: "未設定",
-            shortGoal: "未設定",
-            setTime: "30分",
-            restTime: "5分",
-            setCount: "3セット",
+            name: user.displayName,
+            longGoal: "",
+            shortGoal: "",
+            setTime: "30",
+            restTime: "5",
+            repeatNumber: "3",
             genre: "特にない"
         });
 
@@ -48,23 +48,19 @@ export default function Home() {
             {userProfile ? (
                 <div className="h-screen pt-20 flex justify-center">
                     <div className='w-11/12 max-w-lg'>
-                        <div className="flex justify-around items-center border-b-2 border-solid border-black pt-8 pb-6 px-3">
-                            <div className="w-3/12 flex justify-center mr-6">
+                        <div className="flex justify-around items-center border-b-2 border-solid border-black pt-6 pb-6 pl-2 pr-2">
+                            <div className="w-3/12 flex justify-center mr-1">
                                 <Image className="rounded-full bg-white" src={auth.currentUser.photoURL} width={100} height={100} alt="ユーザーアイコン"/>
                             </div>
-                            <div className="flex flex-col justify-center ml-2 text-xl">
-                                <div className="mb-1.5">
-                                    <p>名前：{userProfile.name}</p>
-                                </div>
-                                <div className="mt-1.5">
-                                    <p>総コミット時間：123h45m</p>
-                                </div>
+                            <div className="flex flex-col justify-center ml-1 text-xl">
+                                <p>{userProfile.name}</p>
                             </div>
                         </div>
                         <div className='px-8 py-6 text-lg'>
-                            <p className='py-5 border-b border-solid border-black'>
-                                長期目標：{userProfile.longGoal}
-                            </p>
+                            <div className='flex py-5 border-b border-solid border-black'>
+                                <p className='w-4/12 flex items-center font-semibold'>長期目標：</p>
+                                <p className='w-8/12'>{userProfile.longGoal}</p>
+                            </div>
                             <p className='py-5 border-b border-solid border-black'>
                                 短期目標：{userProfile.shortGoal}
                             </p>
