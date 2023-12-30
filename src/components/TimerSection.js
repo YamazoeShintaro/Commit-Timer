@@ -77,7 +77,7 @@ export default function TimerSection({ setTime, restTime, repeatNumber }) {
     }, [isRunning, count]);
 
     return (
-        <div className="flex flex-col items-center justify-center">
+        <div style={{ color: "#101841" }} className="flex flex-col items-center justify-center">
             {display === "開始前" && (
                 <p className="text-2xl mb-12">頑張りましょう！</p>
             )}
@@ -86,7 +86,7 @@ export default function TimerSection({ setTime, restTime, repeatNumber }) {
                     <p className="text-2xl mb-10 flex justify-center">〜1セット目〜</p>
                     <div className="flex">
                         <p className="flex items-center pr-3 pl-6">残り</p>
-                        <p className="text-8xl mb-12">{count - (setTime * (repeatNumber - 1)) - (restTime * (repeatNumber - 1))}</p>
+                        <p style={{ color: "#144da0" }} className="text-8xl mb-12">{count - (setTime * (repeatNumber - 1)) - (restTime * (repeatNumber - 1))}</p>
                         <p className="flex items-center pl-4 pr-10">秒</p>
                     </div>
                 </div>
@@ -176,24 +176,24 @@ export default function TimerSection({ setTime, restTime, repeatNumber }) {
                 </div>
             )}
             {display === "終了後" && (
-                <p className="text-3xl mb-12">お疲れ様でした！</p>
+                <p className="text-2xl mb-12">お疲れ様でした！</p>
             )}
             <div>
                 <Button
                     variant="contained"
-                    style={{ width: 100, height: 40 }}
+                    style={{ width: 133, height: 40, backgroundColor: "#70acce" }}
                     onClick={start}
-                >Start</Button>
+                >スタート／再開</Button>
                 <Button
                     variant="contained"
-                    style={{ width: 100, height: 40, marginLeft: 15 }}
+                    style={{ width: 90, height: 40, marginLeft: 15, backgroundColor: "#70acce" }}
                     onClick={pause}
-                >Pause</Button>
+                >一時停止</Button>
                 <Button
                     variant="contained"
-                    style={{ width: 100, height: 40, marginLeft: 15 }}
+                    style={{ width: 90, height: 40, marginLeft: 15, backgroundColor: "#70acce" }}
                     onClick={reset}
-                >Reset</Button>
+                >リセット</Button>
             </div>
         </div>
     );

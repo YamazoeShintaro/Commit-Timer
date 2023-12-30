@@ -8,8 +8,6 @@ import { auth } from '@/components/FireBase';
 export default function LoginFlow() {
     const [user] = useAuthState(auth);
 
-    const handleSignOut = () => {auth.signOut()}
-
     return (
         <div>
             {user ? (

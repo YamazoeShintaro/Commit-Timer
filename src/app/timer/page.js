@@ -28,7 +28,7 @@ export default function TimerPage() {
     return (
         <div>
             {userProfile && (
-                <div className="pt-24 w-screen h-screen bg-red-300">
+                <div className="pt-24 w-screen h-screen bg-slate-50 text-sky-950">
                     <ul className="flex justify-center text-xl mb-2">
                         <li>セットタイム：{userProfile.setTime}分&nbsp;</li>
                         <li>／ 休憩：{userProfile.restTime}分</li>

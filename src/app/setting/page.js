@@ -38,7 +38,7 @@ export default function SettingPage() {
             setTime: data.setTime,
             restTime: data.restTime,
             repeatNumber: data.repeatNumber,
-            genre: data.genre
+            // genre: data.genre
         };
 
         setDoc(doc(db, "profiles", user.uid), input);
@@ -50,10 +50,10 @@ export default function SettingPage() {
     return (
         <div>
             {userProfile && (
-                <div className="h-screen flex items-center justify-center pt-32">
-                    <div className="bg-green-300 rounded-xl w-5/6 max-w-md py-10 px-8 border border-solid border-black drop-shadow-2xl">
+                <div className="bg-slate-50 text-gray-600 h-screen flex items-center justify-center pt-20">
+                    <div className="w-5/6 max-w-md">
                         <form action={handleSubmit(onsubmit, onerror)} noValidate>
-                            <div className="mb-3 mx-2">
+                            <div className="mb-7 mx-2">
                                 <TextField label="ニックネーム" margin="none" size="small" multiline fullWidth defaultValue={userProfile.name}
                                     {...register('name', {
                                         required: 'ニックネームは必須入力です。',
@@ -65,25 +65,25 @@ export default function SettingPage() {
                                     error={'name' in errors}
                                     helperText={errors.name?.message} />
                             </div>
-                            <div className="my-3 mx-2">
+                            <div className="my-7 mx-2">
                                 <TextField label="長期目標" margin="none" size="small" multiline fullWidth defaultValue={userProfile.longGoal}
                                     {...register('longGoal', {
                                         required: '長期目標は必須入力です。',
                                         maxLength: {
-                                            value: 40,
-                                            message: '40文字以内にしてください。'
+                                            value: 30,
+                                            message: '30文字以内にしてください。'
                                         }
                                     })}
                                     error={'longGoal' in errors}
                                     helperText={errors.longGoal?.message} />
                             </div>
-                            <div className="mt-2 mx-2">
+                            <div className="mt-7 mx-2">
                                 <TextField label="短期目標" margin="none" size="small" multiline fullWidth defaultValue={userProfile.shortGoal}
                                     {...register('shortGoal', {
                                         required: false,
                                         maxLength: {
-                                            value: 40,
-                                            message: '40文字以内にしてください。'
+                                            value: 30,
+                                            message: '30文字以内にしてください。'
                                         }
                                     })}
                                     error={'shortGoal' in errors}
@@ -92,27 +92,25 @@ export default function SettingPage() {
                             <div className="mx-3">
                                 <div className="border-b border-solid border-black">
                                     <FormControl>
-                                        <div className="mt-5">
-                                            <FormLabel component="legend">セットタイム</FormLabel>
-                                        </div>
-                                        <RadioGroup name="setTime">
+                                        <p className="mt-5">セットタイム(分)</p>
+                                        <RadioGroup name="setTime" defaultValue={userProfile.setTime}>
                                             <div className="flex wrap">
-                                                <FormControlLabel value="1" control={<Radio />} label="1分"
+                                                <FormControlLabel value="1" control={<Radio />} label="1"
                                                     {...register('setTime', {
                                                         required: false,
                                                     })}
                                                 />
-                                                <FormControlLabel value="30" control={<Radio />} label="30分"
+                                                <FormControlLabel value="30" control={<Radio />} label="30"
                                                     {...register('setTime', {
                                                         required: false,
                                                     })}
                                                 />
-                                                <FormControlLabel value="60" control={<Radio />} label="60分"
+                                                <FormControlLabel value="60" control={<Radio />} label="60"
                                                     {...register('setTime', {
                                                         required: false,
                                                     })}
                                                 />
-                                                <FormControlLabel value="90" control={<Radio />} label="90分"
+                                                <FormControlLabel value="90" control={<Radio />} label="90"
                                                     {...register('setTime', {
                                                         required: false,
                                                     })}
@@ -123,27 +121,25 @@ export default function SettingPage() {
                                 </div>
                                 <div className="border-b border-solid border-black">
                                     <FormControl>
-                                        <div className="mt-5">
-                                            <FormLabel component="legend">インターバル(休憩)</FormLabel>
-                                        </div>
-                                        <RadioGroup name="restTime">
+                                        <p className="mt-5">インターバル(分)</p>
+                                        <RadioGroup name="restTime" defaultValue={userProfile.restTime}>
                                             <div className="flex wrap">
-                                                <FormControlLabel value="1" control={<Radio />} label="1分"
+                                                <FormControlLabel value="1" control={<Radio />} label="1"
                                                     {...register('restTime', {
                                                         required: false,
                                                     })}
                                                 />
-                                                <FormControlLabel value="5" control={<Radio />} label="5分"
+                                                <FormControlLabel value="5" control={<Radio />} label="5"
                                                     {...register('restTime', {
                                                         required: false,
                                                     })}
                                                 />
-                                                <FormControlLabel value="10" control={<Radio />} label="10分"
+                                                <FormControlLabel value="10" control={<Radio />} label="10"
                                                     {...register('restTime', {
                                                         required: false,
                                                     })}
                                                 />
-                                                <FormControlLabel value="20" control={<Radio />} label="20分"
+                                                <FormControlLabel value="20" control={<Radio />} label="20"
                                                     {...register('restTime', {
                                                         required: false,
                                                     })}
@@ -154,59 +150,21 @@ export default function SettingPage() {
                                 </div>
                                 <div className="border-b border-solid border-black">
                                     <FormControl>
-                                        <div className="mt-5">
-                                            <FormLabel component="legend">セット数</FormLabel>
-                                        </div>
-                                        <RadioGroup name="repeatNumber">
+                                        <p className="mt-5">セット数</p>
+                                        <RadioGroup name="repeatNumber" defaultValue={userProfile.repeatNumber}>
                                             <div className="flex wrap">
-                                                <FormControlLabel value="3" control={<Radio />} label="3セット"
+                                                <FormControlLabel value="3" control={<Radio />} label="3"
                                                     {...register('repeatNumber', {
                                                         required: false,
                                                     })}
                                                 />
-                                                <FormControlLabel value="4" control={<Radio />} label="4セット"
+                                                <FormControlLabel value="4" control={<Radio />} label="4"
                                                     {...register('repeatNumber', {
                                                         required: false,
                                                     })}
                                                 />
-                                                <FormControlLabel value="5" control={<Radio />} label="5セット"
+                                                <FormControlLabel value="5" control={<Radio />} label="5"
                                                     {...register('repeatNumber', {
-                                                        required: false,
-                                                    })}
-                                                />
-                                            </div>
-                                        </RadioGroup>
-                                    </FormControl>
-                                </div>
-                                <div className="border-b border-solid border-black">
-                                    <FormControl>
-                                        <div className="mt-5">
-                                            <FormLabel component="legend">興味のあるジャンル</FormLabel>
-                                        </div>
-                                        <RadioGroup name="genre">
-                                            <div className="flex flex-wrap">
-                                                <FormControlLabel value="動物" control={<Radio />} label="動物"
-                                                    {...register('genre', {
-                                                        required: false,
-                                                    })}
-                                                />
-                                                <FormControlLabel value="スポーツ" control={<Radio />} label="スポーツ"
-                                                    {...register('genre', {
-                                                        required: false,
-                                                    })}
-                                                />
-                                                <FormControlLabel value="食べ物" control={<Radio />} label="食べ物"
-                                                    {...register('genre', {
-                                                        required: false,
-                                                    })}
-                                                />
-                                                <FormControlLabel value="歴史" control={<Radio />} label="歴史"
-                                                    {...register('genre', {
-                                                        required: false,
-                                                    })}
-                                                />
-                                                <FormControlLabel value="特にない" control={<Radio />} label="特にない"
-                                                    {...register('genre', {
                                                         required: false,
                                                     })}
                                                 />
@@ -219,7 +177,7 @@ export default function SettingPage() {
                                 <Button
                                     variant="contained"
                                     type="submit"
-                                    style={{ width: 120, height: 40 }}
+                                    style={{ width: 120, height: 40, backgroundColor: "#70acce" }}
                                 >変更</Button>
                             </div>
                         </form>

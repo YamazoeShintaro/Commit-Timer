@@ -37,49 +37,48 @@ export default function Home() {
             setTime: "30",
             restTime: "5",
             repeatNumber: "3",
-            genre: "特にない"
         });
 
         setCountNew(c => c + 1);
     };
 
     return (
-        <div>
+        <div style={{ color: "#101841" }} className='bg-slate-50'>
             {userProfile ? (
-                <div className="h-screen pt-20 flex justify-center">
+                <div className="h-screen pt-16 flex justify-center">
                     <div className='w-11/12 max-w-lg'>
-                        <div className="flex justify-around items-center border-b-2 border-solid border-black pt-6 pb-6 pl-2 pr-2">
+                        <div style={{ borderColor: "#101841" }} className="flex justify-around items-center border-b border-solid pt-7 pb-5 px-1">
                             <div className="w-3/12 flex justify-center mr-1">
-                                <Image className="rounded-full bg-white" src={auth.currentUser.photoURL} width={100} height={100} alt="ユーザーアイコン"/>
+                                <Image className="rounded-full bg-white" src={auth.currentUser.photoURL} width={70} height={70} alt="ユーザーアイコン"/>
                             </div>
                             <div className="flex flex-col justify-center ml-1 text-xl">
                                 <p>{userProfile.name}</p>
                             </div>
                         </div>
-                        <div className='px-8 py-6 text-lg'>
-                            <div className='flex py-5 border-b border-solid border-black'>
-                                <p className='w-4/12 flex items-center font-semibold'>長期目標：</p>
+                        <div className='px-10 py-2'>
+                            <div style={{ borderColor: "#101841" }} className='flex py-4 px-2 border-b border-solid'>
+                                <p className='w-4/12 flex items-center'>長期目標：</p>
                                 <p className='w-8/12'>{userProfile.longGoal}</p>
                             </div>
-                            <p className='py-5 border-b border-solid border-black'>
-                                短期目標：{userProfile.shortGoal}
-                            </p>
-                            <p className='py-5 border-b border-solid border-black'>セットタイム：{userProfile.setTime}分</p>
-                            <p className='py-5 border-b border-solid border-black'>休憩時間：{userProfile.restTime}分</p>
-                            <p className='py-5 border-b border-solid border-black'>セット数：{userProfile.repeatNumber}セット</p>
-                            <p className='py-5 border-b border-solid border-black'>興味：{userProfile.genre}</p>
+                            <div style={{ borderColor: "#101841" }} className='flex py-4 px-2 border-b border-solid'>
+                                <p className='w-4/12 flex items-center'>短期目標：</p>
+                                <p className='w-8/12'>{userProfile.shortGoal}</p>
+                            </div>
+                            <p style={{ borderColor: "#101841" }} className='py-4 px-2 border-b border-solid'>セットタイム：{userProfile.setTime}分</p>
+                            <p style={{ borderColor: "#101841" }} className='py-4 px-2 border-b border-solid'>休憩時間：{userProfile.restTime}分</p>
+                            <p style={{ borderColor: "#101841" }} className='py-4 px-2 border-b border-solid'>セット数：{userProfile.repeatNumber}セット</p>
                         </div>
                     </div>
                 </div>
             ) : (
                 <div className="flex items-center justify-center">
-                    <div className="z-50 w-screen h-screen bg-green-300 pt-12 pb-6 px-8 border border-solid border-black drop-shadow-2xl">
-                        <h2 className="border-b border-solid border-black text-xl pb-6 text-center">新規登録して始めよう</h2>
+                    <div style={{ borderColor: "#101841" }} className="z-50 w-screen bg-slate-50 h-screen pt-12 pb-6 px-8 border border-solid drop-shadow-2xl">
+                        <h2 className="border-b border-solid text-xl pb-6 text-center">新規登録して始めよう</h2>
                         <div className="flex items-center justify-center h-60">
                             <Button
                             variant="contained"
                             type="submit"
-                            style={{ width: 200, height: 55, textTransform: 'none', fontSize: 16 }}
+                            style={{ width: 200, height: 55, textTransform: 'none', fontSize: 16, backgroundColor: "#70acce" }}
                             onClick={handleNewUser}
                             >新規</Button>
                         </div>
