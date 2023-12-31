@@ -4,6 +4,14 @@ const nextConfig = {
     images: {
         domains: ['lh3.googleusercontent.com'],
       },
+      // module: {
+      //   rules: [
+      //     {
+      //       test: /\.mp3$/,
+      //       use: ['audio-loader'],
+      //     },
+      //   ],
+      // },
 }
 
 module.exports = nextConfig

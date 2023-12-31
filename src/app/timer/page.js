@@ -28,13 +28,13 @@ export default function TimerPage() {
     return (
         <div>
             {userProfile && (
-                <div className="pt-24 w-screen h-screen bg-slate-50 text-sky-950">
+                <div style={{ color: "#101841" }} className="pt-24 w-screen h-screen bg-slate-50 text-sky-950">
                     <ul className="flex justify-center text-xl mb-2">
                         <li>セットタイム：{userProfile.setTime}分&nbsp;</li>
                         <li>／ 休憩：{userProfile.restTime}分</li>
                     </ul>
                     <div className="flex justify-center">
-                        <p className="flex justify-center text-xl mb-12 pb-5 border-b border-solid border-black w-11/12 max-w-md">【 {userProfile.repeatNumber}セット 】</p>
+                        <p style={{ borderColor: "#101841" }} className="flex justify-center text-xl mb-12 pb-5 border-b border-solid w-11/12 max-w-md">【 {userProfile.repeatNumber}セット 】</p>
                     </div>
                     <div><TimerSection setTime={userProfile.setTime * 60} restTime={userProfile.restTime * 60} repeatNumber={userProfile.repeatNumber} /></div>
                 </div>

@@ -23,6 +23,7 @@
     "react-router-dom": "^6.21.1"
   },
   "devDependencies": {
+    "audio-loader": "^1.0.3",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",

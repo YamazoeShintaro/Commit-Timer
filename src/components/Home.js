@@ -8,6 +8,9 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import db from "./FireBase";
 import { doc, setDoc } from 'firebase/firestore';
 import { collection, getDocs } from "firebase/firestore";
+import { Roboto_Slab } from 'next/font/google';
+
+const headerFnt = Roboto_Slab({ subsets: ['latin'] });
 
 export default function Home() {
     const [userProfiles, setUserProfiles] = useState([]);
@@ -72,15 +75,18 @@ export default function Home() {
                 </div>
             ) : (
                 <div className="flex items-center justify-center">
-                    <div style={{ borderColor: "#101841" }} className="z-50 w-screen bg-slate-50 h-screen pt-12 pb-6 px-8 border border-solid drop-shadow-2xl">
-                        <h2 className="border-b border-solid text-xl pb-6 text-center">新規登録して始めよう</h2>
+                    <div style={{ color: "#101841" }} className="z-50 w-screen h-screen bg-slate-50 pt-12 pb-6 px-8">
+                        <div style={{ fontSize: 30, borderColor: "#101841" }} className="flex flex-col border-b border-solid text-xl pb-4 items-center">
+                            <h2 style={{ fontWeight: 600 }} className={headerFnt.className}>Co<span style={{ color: "#70acce" }}>mm</span>it Ti<span style={{ color: "#70acce" }}>m</span>er</h2>
+                            <p className='text-xl pt-4'>へようこそ！</p>
+                        </div>
                         <div className="flex items-center justify-center h-60">
                             <Button
-                            variant="contained"
-                            type="submit"
-                            style={{ width: 200, height: 55, textTransform: 'none', fontSize: 16, backgroundColor: "#70acce" }}
-                            onClick={handleNewUser}
-                            >新規</Button>
+                                variant="contained"
+                                type="submit"
+                                style={{ width: 200, height: 55, textTransform: 'none', fontSize: 16, backgroundColor: "#70acce" }}
+                                onClick={handleNewUser}
+                            >はじめる</Button>
                         </div>
                     </div>
                 </div>
