@@ -10,7 +10,7 @@ import { doc, setDoc } from 'firebase/firestore';
 import { collection, getDocs } from "firebase/firestore";
 import { Roboto_Slab } from 'next/font/google';
 
-const headerFnt = Roboto_Slab({ subsets: ['latin'] });
+const LogoNavFnt = Roboto_Slab({ subsets: ['latin'] });
 
 export default function Home() {
     const [userProfiles, setUserProfiles] = useState([]);
@@ -76,11 +76,10 @@ export default function Home() {
             ) : (
                 <div className="flex items-center justify-center">
                     <div style={{ color: "#101841" }} className="z-50 w-screen h-screen bg-slate-50 pt-12 pb-6 px-8">
-                        <div style={{ fontSize: 30, borderColor: "#101841" }} className="flex flex-col border-b border-solid text-xl pb-4 items-center">
-                            <h2 style={{ fontWeight: 600 }} className={headerFnt.className}>Co<span style={{ color: "#70acce" }}>mm</span>it Ti<span style={{ color: "#70acce" }}>m</span>er</h2>
-                            <p className='text-xl pt-4'>へようこそ！</p>
+                        <div style={{ backgroundColor: "#101841",fontWeight: 380, fontSize: 28 }} className='flex justify-center items-center fixed top-0 left-0 right-0 z-30 text-slate-50 py-3'>
+                            <h1 className={LogoNavFnt.className}>Commit Timer</h1>
                         </div>
-                        <div className="flex items-center justify-center h-60">
+                        <div className="flex items-center justify-center h-96">
                             <Button
                                 variant="contained"
                                 type="submit"

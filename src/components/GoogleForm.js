@@ -3,6 +3,9 @@
 import { auth, provider } from './FireBase';
 import { Button } from '@mui/material';
 import { signInWithPopup } from "firebase/auth";
+import { Roboto_Slab } from 'next/font/google';
+
+const LogoNavFnt = Roboto_Slab({ subsets: ['latin'] });
 
 export default function GoogleForm() {
 
@@ -12,8 +15,10 @@ export default function GoogleForm() {
 
   return (
     <div style={{ color: "#101841" }} className="z-50 w-screen h-screen bg-slate-50 pt-12 pb-6 px-8">
-      <h2 style={{ borderColor: "#101841" }} className="border-b border-solid text-xl pb-6 text-center">サインインして始めよう</h2>
-      <div className="flex items-center justify-center h-60">
+      <div style={{ backgroundColor: "#101841",fontWeight: 380, fontSize: 28 }} className='flex justify-center items-center fixed top-0 left-0 right-0 z-30 text-slate-50 py-3'>
+        <h1 className={LogoNavFnt.className}>Commit Timer</h1>
+      </div>
+      <div className="flex items-center justify-center h-96">
         <Button
           variant="contained"
           type="submit"
