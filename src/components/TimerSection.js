@@ -1,10 +1,10 @@
 'use client';
 
+import Trivia from "./Trivia";
 import React from "react";
 import { useState, useEffect } from "react";
 import { Button } from '@mui/material';
-// import useSound from 'next/sound';
-// import Timer from '@/audio/timer.mp3';
+// import TimerSound from "@/audio/timer.mp3";
 
 export default function TimerSection({ setTime, restTime, repeatNumber }) {
     const initialCount = (setTime * repeatNumber) + (restTime * (repeatNumber - 1));
@@ -13,7 +13,11 @@ export default function TimerSection({ setTime, restTime, repeatNumber }) {
 
     const [isRunning, setIsRunning] = useState(false);
 
-    const [display, setDisplay] = useState("0");
+    const [display, setDisplay] = useState("");
+
+    const [triviaNum, setTriviaNum] = useState();
+
+    // const audioTimer = new Audio({TimerSound});
 
     const start = () => {
         setIsRunning(true);
@@ -33,96 +37,29 @@ export default function TimerSection({ setTime, restTime, repeatNumber }) {
     useEffect(() => {
         let timerId;
 
-        // const [audio] = useSound(Timer);
-        // console.log(audio);
-
         if (isRunning && count > 0) {
             timerId = setInterval(() => {
                 tick()
             }, 1000);
         }
 
-        if (count === initialCount) {
-            setDisplay("開始前");
-        }
-        if (count < initialCount && count > (initialCount - setTime)) {
-            setDisplay("1セット目");
-        }
-        if (count <= (initialCount - setTime) && count > (initialCount - setTime - restTime)) {
-            setDisplay("1セット後の休憩");
-            // if (count === (initialCount - setTime)) {
-            //     audio.play();
-            // }
-            // if (count === (initialCount - setTime - 3)) {
-            //     audio.pause();
-            // }
-        }
-        if (count <= (initialCount - setTime - restTime) && count > (initialCount - (setTime * 2) - restTime)) {
-            setDisplay("2セット目");
-            // if (count === (initialCount - setTime - restTime)) {
-            //     audio.play();
-            // }
-            // if (count === (initialCount - setTime - restTime - 3)) {
-            //     audio.pause();
-            // }
-        }
-        if (count <= (initialCount - (setTime * 2) - restTime) && count > (initialCount - (setTime * 2) - (restTime * 2))) {
-            setDisplay("2セット後の休憩");
-            // if (count === (initialCount - (setTime * 2) - restTime)) {
-            //     audio.play();
-            // }
-            // if (count === (initialCount - (setTime * 2) - restTime - 3)) {
-            //     audio.pause();
-            // }
-        }
-        if (count <= (initialCount - (setTime * 2) - (restTime * 2)) && count > (initialCount - (setTime * 3) - (restTime * 2))) {
-            setDisplay("3セット目");
-            // if (count === (initialCount - (setTime * 2) - (restTime * 2))) {
-            //     audio.play();
-            // }
-            // if (count === (initialCount - (setTime * 2) - (restTime * 2) - 3)) {
-            //     audio.pause();
-            // }
-        }
-        if (count <= (initialCount - (setTime * 3) - (restTime * 2)) && count > (initialCount - (setTime * 3) - (restTime * 3))) {
-            setDisplay("3セット後の休憩");
-            // if (count === (initialCount - (setTime * 3) - (restTime * 2))) {
-            //     audio.play();
-            // }
-            // if (count === (initialCount - (setTime * 3) - (restTime * 2) - 3)) {
-            //     audio.pause();
-            // }
-        }
-        if (count <= (initialCount - (setTime * 3) - (restTime * 3)) && count > (initialCount - (setTime * 4) - (restTime * 3))) {
-            setDisplay("4セット目");
-            // if (count === (initialCount - (setTime * 3) - (restTime * 3))) {
-            //     audio.play();
-            // }
-            // if (count === (initialCount - (setTime * 3) - (restTime * 3) - 3)) {
-            //     audio.pause();
-            // }
-        }
-        if (count <= (initialCount - (setTime * 4) - (restTime * 3)) && count > (initialCount - (setTime * 4) - (restTime * 4))) {
-            setDisplay("4セット後の休憩");
-            // if (count === (initialCount - (setTime * 4) - (restTime * 3))) {
-            //     audio.play();
-            // }
-            // if (count === (initialCount - (setTime * 4) - (restTime * 3) - 3)) {
-            //     audio.pause();
-            // }
-        }
-        if (count <= (initialCount - (setTime * 4) - (restTime * 4)) && count > (initialCount - (setTime * 5) - (restTime * 4))) {
-            setDisplay("5セット目");
-            // if (count === (initialCount - (setTime * 4) - (restTime * 4))) {
-            //     audio.play();
-            // }
-            // if (count === (initialCount - (setTime * 4) - (restTime * 4) - 3)) {
-            //     audio.pause();
-            // }
-        }
-        if (count === 0) {
-            setDisplay("終了後");
-            audio.play();
+        for (let k = 0; k <= repeatNumber; k++) {
+            if (count === initialCount) {
+                setDisplay("開始前");
+            }
+            if (count <= (initialCount - (setTime * k) - (restTime * k)) && count > (initialCount - (setTime * (k + 1)) - (restTime * k))) {
+                setDisplay(`${k + 1}セット目`);
+            }
+            if (count === (initialCount - (setTime * (k + 1)) - (restTime * k))) {
+                // audioTimer.play();
+                setTriviaNum(Math.floor(Math.random() * 10));
+            }
+            if (count <= (initialCount - (setTime * (k + 1)) - (restTime * k)) && count > (initialCount - (setTime * (k + 1)) - (restTime * (k + 1)))) {
+                setDisplay(`${k + 1}セット後の休憩`);
+            }
+            if (count === 0) {
+                setDisplay("終了後");
+            }
         }
 
         return () => {
@@ -147,9 +84,9 @@ export default function TimerSection({ setTime, restTime, repeatNumber }) {
             )}
             {display === "1セット後の休憩" && (
                 <div>
-                    <p className="text-3xl mb-10 flex justify-center">〜休憩〜</p>
-                    <p className="text-lg">2セット目まで</p>
-                    <div className="flex">
+                    <Trivia triviaNum={triviaNum}/>
+                    <p className="text-lg pl-16 py-1">2セット目まで</p>
+                    <div className="flex justify-center">
                         <p className="flex items-center pr-3 pl-6">残り</p>
                         <p style={{ color: "#144da0" }} className="text-8xl mb-12">{count - (setTime * (repeatNumber - 1)) - (restTime * (repeatNumber - 2))}</p>
                         <p className="flex items-center pl-4 pr-5">秒</p>
@@ -168,9 +105,9 @@ export default function TimerSection({ setTime, restTime, repeatNumber }) {
             )}
             {display === "2セット後の休憩" && (
                 <div>
-                    <p className="text-3xl mb-10 flex justify-center">〜休憩〜</p>
-                    <p className="text-lg">3セット目まで</p>
-                    <div className="flex">
+                    <Trivia triviaNum={triviaNum}/>
+                    <p className="text-lg pl-16 py-1">3セット目まで</p>
+                    <div className="flex justify-center">
                         <p className="flex items-center pr-3 pl-6">残り</p>
                         <p style={{ color: "#144da0" }} className="text-8xl mb-12">{count - (setTime * (repeatNumber - 2)) - (restTime * (repeatNumber - 3))}</p>
                         <p className="flex items-center pl-4 pr-5">秒</p>
@@ -189,9 +126,9 @@ export default function TimerSection({ setTime, restTime, repeatNumber }) {
             )}
             {display === "3セット後の休憩" && (
                 <div>
-                    <p className="text-3xl mb-10 flex justify-center">〜休憩〜</p>
-                    <p className="text-lg">4セット目まで</p>
-                    <div className="flex">
+                    <Trivia triviaNum={triviaNum}/>
+                    <p className="text-lg pl-16 py-1">4セット目まで</p>
+                    <div className="flex justify-center">
                         <p className="flex items-center pr-3 pl-6">残り</p>
                         <p style={{ color: "#144da0" }} className="text-8xl mb-12">{count - (setTime * (repeatNumber - 3)) - (restTime * (repeatNumber - 4))}</p>
                         <p className="flex items-center pl-4 pr-5">秒</p>
@@ -210,9 +147,9 @@ export default function TimerSection({ setTime, restTime, repeatNumber }) {
             )}
             {display === "4セット後の休憩" && (
                 <div>
-                    <p className="text-3xl mb-10 flex justify-center">〜休憩〜</p>
-                    <p className="text-lg">5セット目まで</p>
-                    <div className="flex">
+                    <Trivia triviaNum={triviaNum}/>
+                    <p className="text-lg pl-16 py-1">5セット目まで</p>
+                    <div className="flex justify-center">
                         <p className="flex items-center pr-3 pl-6">残り</p>
                         <p style={{ color: "#144da0" }} className="text-8xl mb-12">{count - (setTime * (repeatNumber - 4)) - (restTime * (repeatNumber - 5))}</p>
                         <p className="flex items-center pl-4 pr-5">秒</p>
@@ -232,7 +169,8 @@ export default function TimerSection({ setTime, restTime, repeatNumber }) {
             {display === "終了後" && (
                 <p className="text-2xl mb-12">お疲れ様でした！</p>
             )}
-            <div style={{ borderColor: "#101841" }} className="border-b pb-16">
+
+            <div style={{ borderColor: "#101841" }} className="border-b pb-12">
                 <Button
                     variant="contained"
                     style={{ width: 133, height: 40, backgroundColor: "#70acce" }}
