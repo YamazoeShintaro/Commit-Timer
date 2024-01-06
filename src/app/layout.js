@@ -2,6 +2,7 @@ import './globals.css';
 import { Roboto_Slab, Noto_Serif } from 'next/font/google';
 import Link from 'next/link';
 import { Home, Timer, Settings } from "@mui/icons-material";
+import Favicon from "@/favicons/favicon.ico";
 
 const LogoFnt = Roboto_Slab({ subsets: ['latin'] });
 const MainFnt = Noto_Serif({ subsets: ['latin'] });
@@ -12,6 +13,7 @@ const SettingsIcon = Settings;
 export const metadata = {
   title: 'Commit Timer',
   description: 'あなたが勉強やトレーニングにCommitできるタイマーアプリです',
+  icons: [{ rel: 'icon', url: Favicon }],
 };
 
 export default function RootLayout({ children }) {

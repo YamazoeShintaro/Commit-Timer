@@ -81,7 +81,7 @@ export default function TimerSection({ commitTime, restTime, repeatNumber }) {
                     <p className="flex justify-center text-xl mb-5">〜1セット目〜</p>
                     <div className="flex">
                         <p className="flex items-center pr-3 pl-6 text-sm">残り</p>
-                        <p style={{ color: "#144da0" }} className="text-7xl mb-6">
+                        <p style={{ color: "#144da0" }} className="text-7xl mb-5">
                             {count - (commitTime * (repeatNumber - 1)) - (restTime * (repeatNumber - 1))}
                         </p>
                         <p className="flex items-center pl-4 pr-10 text-sm">秒</p>
@@ -94,7 +94,7 @@ export default function TimerSection({ commitTime, restTime, repeatNumber }) {
                     <p className="text-sm pl-16 py-1">2セット目まで</p>
                     <div className="flex justify-center">
                         <p className="flex items-center pr-3 pl-6 text-sm">残り</p>
-                        <p style={{ color: "#144da0" }} className="text-7xl mb-6">
+                        <p style={{ color: "#144da0" }} className="text-7xl mb-4">
                             {count - (commitTime * (repeatNumber - 1)) - (restTime * (repeatNumber - 2))}
                         </p>
                         <p className="flex items-center pl-4 pr-5 text-sm">秒</p>
@@ -106,7 +106,7 @@ export default function TimerSection({ commitTime, restTime, repeatNumber }) {
                     <p className="flex justify-center text-xl mb-5">〜2セット目〜</p>
                     <div className="flex">
                         <p className="flex items-center pr-3 pl-6 text-sm">残り</p>
-                        <p style={{ color: "#144da0" }} className="text-7xl mb-6">
+                        <p style={{ color: "#144da0" }} className="text-7xl mb-4">
                             {count - (commitTime * (repeatNumber - 2)) - (restTime * (repeatNumber - 2))}
                         </p>
                         <p className="flex items-center pl-4 pr-10 text-sm">秒</p>
@@ -119,7 +119,7 @@ export default function TimerSection({ commitTime, restTime, repeatNumber }) {
                     <p className="text-lg pl-16 py-1">3セット目まで</p>
                     <div className="flex justify-center">
                         <p className="flex items-center pr-3 pl-6 text-sm">残り</p>
-                        <p style={{ color: "#144da0" }} className="text-7xl mb-6">
+                        <p style={{ color: "#144da0" }} className="text-7xl mb-4">
                             {count - (commitTime * (repeatNumber - 2)) - (restTime * (repeatNumber - 3))}
                         </p>
                         <p className="flex items-center pl-4 pr-5 text-sm">秒</p>
@@ -131,7 +131,7 @@ export default function TimerSection({ commitTime, restTime, repeatNumber }) {
                     <p className="flex justify-center text-xl mb-5">〜3セット目〜</p>
                     <div className="flex">
                         <p className="flex items-center pr-3 pl-6 text-sm">残り</p>
-                        <p style={{ color: "#144da0" }} className="text-7xl mb-6">
+                        <p style={{ color: "#144da0" }} className="text-7xl mb-4">
                             {count - (commitTime * (repeatNumber - 3)) - (restTime * (repeatNumber - 3))}
                         </p>
                         <p className="flex items-center pl-4 pr-10 text-sm">秒</p>
@@ -144,7 +144,7 @@ export default function TimerSection({ commitTime, restTime, repeatNumber }) {
                     <p className="text-lg pl-16 py-1">4セット目まで</p>
                     <div className="flex justify-center">
                         <p className="flex items-center pr-3 pl-6 text-sm">残り</p>
-                        <p style={{ color: "#144da0" }} className="text-7xl mb-6">
+                        <p style={{ color: "#144da0" }} className="text-7xl mb-4">
                             {count - (commitTime * (repeatNumber - 3)) - (restTime * (repeatNumber - 4))}
                         </p>
                         <p className="flex items-center pl-4 pr-5 text-sm">秒</p>
@@ -156,7 +156,7 @@ export default function TimerSection({ commitTime, restTime, repeatNumber }) {
                     <p className="flex justify-center text-xl mb-5">〜4セット目〜</p>
                     <div className="flex">
                         <p className="flex items-center pr-3 pl-6 text-sm">残り</p>
-                        <p style={{ color: "#144da0" }} className="text-7xl mb-6">
+                        <p style={{ color: "#144da0" }} className="text-7xl mb-4">
                             {count - (commitTime * (repeatNumber - 4)) - (restTime * (repeatNumber - 4))}
                         </p>
                         <p className="flex items-center pl-4 pr-10 text-sm">秒</p>
@@ -169,7 +169,7 @@ export default function TimerSection({ commitTime, restTime, repeatNumber }) {
                     <p className="text-lg pl-16 py-1">5セット目まで</p>
                     <div className="flex justify-center">
                         <p className="flex items-center pr-3 pl-6 text-sm">残り</p>
-                        <p style={{ color: "#144da0" }} className="text-7xl mb-6">
+                        <p style={{ color: "#144da0" }} className="text-7xl mb-4">
                             {count - (commitTime * (repeatNumber - 4)) - (restTime * (repeatNumber - 5))}
                         </p>
                         <p className="flex items-center pl-4 pr-5 text-sm">秒</p>
@@ -181,7 +181,7 @@ export default function TimerSection({ commitTime, restTime, repeatNumber }) {
                     <p className="flex justify-center text-xl mb-5">〜5セット目〜</p>
                     <div className="flex">
                         <p className="flex items-center pr-3 pl-6 text-sm">残り</p>
-                        <p style={{ color: "#144da0" }} className="text-7xl mb-6">
+                        <p style={{ color: "#144da0" }} className="text-7xl mb-4">
                             {count - (Time * (repeatNumber - 5)) - (restTime * (repeatNumber - 5))}
                         </p>
                         <p className="flex items-center pl-4 pr-10 text-sm">秒</p>
