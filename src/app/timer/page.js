@@ -1,19 +1,17 @@
 'use client';
 
-import React from "react";
-import TimerSection from "@/components/TimerSection";
-import { useState, useEffect } from 'react';
-import { auth, provider } from '@/components/FireBase';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import db from "@/components/FireBase";
+import { useState, useEffect } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { collection, getDocs } from "firebase/firestore";
-
+import { auth } from "@/components/FireBase";
+import db from "@/components/FireBase";
+import TimerSection from "@/components/TimerSection";
 
 export default function TimerPage() {
     const [userProfiles, setUserProfiles] = useState([]);
-
     const [user] = useAuthState(auth);
 
+    // データベースからログイン中のユーザー情報を取得する
     useEffect(() => {
         const profileData = collection(db, "profiles");
         getDocs(profileData).then((snapShot) => {
@@ -28,15 +26,26 @@ export default function TimerPage() {
     return (
         <div>
             {userProfile && (
-                <div style={{ color: "#101841" }} className="pt-24 w-screen h-screen bg-slate-50 text-sky-950">
-                    <ul className="flex justify-center text-xl mb-2">
-                        <li>セットタイム：{userProfile.setTime}分&nbsp;</li>
+                <div style={{ color: "#101841" }} className="pt-20 w-screen h-screen bg-slate-50">
+                    <ul className="flex justify-center text-xl mb-2 pt-2">
+                        <li>コミットタイム：{userProfile.commitTime}分&nbsp;</li>
                         <li>／ 休憩：{userProfile.restTime}分</li>
                     </ul>
                     <div className="flex justify-center">
-                        <p style={{ borderColor: "#101841" }} className="flex justify-center text-xl mb-12 pb-5 border-b border-solid w-11/12 max-w-md">【 {userProfile.repeatNumber}セット 】</p>
+                        <p
+                            style={{ borderColor: "#101841" }}
+                            className="flex justify-center text-xl mb-8 pb-3 border-b w-11/12 max-w-md"
+                        >
+                            【 {userProfile.repeatNumber}セット 】
+                        </p>
                     </div>
-                    <div><TimerSection setTime={userProfile.setTime * 60} restTime={userProfile.restTime * 60} repeatNumber={userProfile.repeatNumber} /></div>
+                    <TimerSection
+                        // 単位を"秒"に直して渡す
+                        commitTime={userProfile.commitTime * 60}
+                        restTime={userProfile.restTime * 60}
+                        // セット数
+                        repeatNumber={userProfile.repeatNumber}
+                    />
                 </div>
             )}
         </div>
