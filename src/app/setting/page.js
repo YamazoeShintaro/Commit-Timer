@@ -92,7 +92,7 @@ export default function SettingPage() {
                                 <div className="border-b border-solid border-black">
                                     <FormControl>
                                         <p className="mt-2 text-sm">コミットタイム(分)</p>
-                                        <RadioGroup name="commitTime" defaultValue={userProfile.setTime}>
+                                        <RadioGroup name="commitTime" defaultValue={userProfile.commitTime}>
                                             <div className="flex wrap">
                                                 <FormControlLabel value="1" control={<Radio />} label="1"
                                                     {...register('commitTime', {
