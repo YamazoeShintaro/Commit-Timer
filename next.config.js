@@ -4,22 +4,20 @@ const nextConfig = {
     images: {
       domains: ['lh3.googleusercontent.com'],
     },
-    // module: {
-    //   rules: [
-    //     {
-    //       test: /\.mp3$/,
-    //       use: [
-    //         {
-    //           loader: 'file-loader',
-    //           options: {
-    //             name: 'timer.mp3',
-    //             outputPath: 'audio/', // adjust the output path as needed
-    //           },
-    //         },
-    //       ],
-    //     },
-    //   ],
-    // },
+    webpack(config) {
+      config.module.rules.push({
+        test: /\.(ogg|mp3|wav|mpe?g)$/i,
+        use: [
+          {
+            loader: require.resolve('url-loader'),
+            options: {
+              name: '[name]-[hash].[ext]',
+            },
+          },
+        ],
+      });
+      return config;
+    },
 };
 
 module.exports = nextConfig
