@@ -99,7 +99,7 @@ export default function Home() {
                             <Button
                             variant="contained"
                             type="submit"
-                            style={{ width: 160, height: 50, textTransform: 'none', fontSize: 16, backgroundColor: "#70acce" }}
+                            style={{ width: 180, height: 50, textTransform: 'none', fontSize: 16, backgroundColor: "#70acce" }}
                             onClick={handleNewUser}
                             >はじめる</Button>
                         </div>
