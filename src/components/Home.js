@@ -16,17 +16,13 @@ export default function Home() {
     const [userProfiles, setUserProfiles] = useState([]);
     const [newUserCount, setNewUserCount] = useState(0);
 
-    // Homeを開くたびにデータベースから最新のデータを取得し、useProfileを更新する
+    // Homeを開くたびにデータベースから最新のデータを取得し、userProfileを更新する
     useEffect(() => {
         const profileData = collection(db, "profiles");
         getDocs(profileData).then((snapShot) => {
             setUserProfiles(snapShot.docs.map((doc) => ({ ...doc.data() })));
         });
     }, [newUserCount]);
-
-    const userProfile = userProfiles.find(function(element){
-        return element.userId === user.uid;
-    });
 
     // ログインしたのが新規ユーザーの場合、既定値でデータベースにユーザーを登録
     const handleNewUser = () => {
@@ -42,9 +38,15 @@ export default function Home() {
         setNewUserCount(c => c + 1);
     };
 
+    // 現在Googleでログインしているユーザーのuidを使い、IDが一致するデータを取得
+    const userProfile = userProfiles.find(function(element){
+        return element.userId === user.uid;
+    });
+
     return (
         <div style={{ color: "#101841" }} className='bg-slate-50'>
             {userProfile ? (
+                // userprofileが取得できた時（既にデータベースのユーザー情報がある時）、Homeのプロフィール画面を表示
                 <div className="pt-16 h-screen flex justify-center">
                     <div className='w-11/12 max-w-lg'>
                         <div
@@ -81,6 +83,7 @@ export default function Home() {
                     </div>
                 </div>
             ) : (
+                // userProfileが取得できなかった時（新規ユーザーの時）、uidをIDとして初期値でユーザー登録をするボタンを表示
                 <div className="flex">
                     <div
                         style={{ color: "#101841" }}

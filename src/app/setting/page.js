@@ -11,9 +11,9 @@ import { collection, getDocs } from "firebase/firestore";
 
 export default function SettingPage() {
     const [userProfiles, setUserProfiles] = useState([]);
-
     const [user] = useAuthState(auth);
 
+    // データベースから現在のユーザーの情報を呼び出す
     useEffect(() => {
         const profileData = collection(db, "profiles");
         getDocs(profileData).then((snapShot) => {
@@ -27,6 +27,7 @@ export default function SettingPage() {
 
     const { register, handleSubmit, formState: { errors, isDirty, isSubmitting } } = useForm();
 
+    // ボタンが押されて変更が成功したら、データベース上の現在のユーザーの情報を書き換える
     const onsubmit = (data) => {
         const input = {
             userId: user.uid,
@@ -46,6 +47,7 @@ export default function SettingPage() {
 
     return (
         <div>
+            {/* useEffectによるデータベースからの現在のユーザー情報呼び出しが完了し次第、表示する */}
             {userProfile && (
                 <div className="bg-slate-50 text-gray-600 h-screen flex justify-center pt-24">
                     <div className="w-5/6 max-w-md">
