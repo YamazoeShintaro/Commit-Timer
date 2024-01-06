@@ -25,7 +25,7 @@ export default function GoogleSignIn() {
             <Button
               variant="contained"
               type="submit"
-              style={{ width: 180, height: 50, textTransform: 'none', fontSize: 12, backgroundColor: "#70acce" }}
+              style={{ width: 180, height: 50, textTransform: 'none', fontSize: 16, backgroundColor: "#70acce" }}
               onClick={handleSignIn}
             >Googleでサインイン</Button>
           </div>
