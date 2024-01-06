@@ -2,7 +2,7 @@
 
 import Home from "@/components/Home";
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth } from '@/components/FireBase';
+import { auth, provider } from '@/components/FireBase';
 import { Button } from '@mui/material';
 import { signInWithPopup } from "firebase/auth";
 import { Roboto_Slab } from 'next/font/google';
