@@ -1,8 +1,8 @@
 'use client';
 
-import { useForm } from 'react-hook-form';
 import { useState, useEffect } from 'react';
-import { Button, FormControl, FormControlLabel, FormHelperText, FormLabel, Radio, RadioGroup, TextField } from '@mui/material';
+import { useForm } from 'react-hook-form';
+import { Button, FormControl, FormControlLabel, Radio, RadioGroup, TextField } from '@mui/material';
 import { doc, setDoc } from "firebase/firestore";
 import { auth } from '@/components/FireBase';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -25,7 +25,7 @@ export default function SettingPage() {
         return element.userId === user.uid;
     });
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors, isDirty, isSubmitting } } = useForm();
 
     const onsubmit = (data) => {
         const input = {
@@ -33,10 +33,9 @@ export default function SettingPage() {
             name: data.name,
             longGoal: data.longGoal,
             shortGoal: data.shortGoal,
-            setTime: data.setTime,
+            commitTime: data.commitTime,
             restTime: data.restTime,
             repeatNumber: data.repeatNumber,
-            // genre: data.genre
         };
 
         setDoc(doc(db, "profiles", user.uid), input);
@@ -90,26 +89,26 @@ export default function SettingPage() {
                             <div className="mx-3">
                                 <div className="border-b border-solid border-black">
                                     <FormControl>
-                                        <p className="mt-3">セットタイム(分)</p>
-                                        <RadioGroup name="setTime" defaultValue={userProfile.setTime}>
+                                        <p className="mt-3">コミットタイム(分)</p>
+                                        <RadioGroup name="commitTime" defaultValue={userProfile.setTime}>
                                             <div className="flex wrap">
                                                 <FormControlLabel value="1" control={<Radio />} label="1"
-                                                    {...register('setTime', {
+                                                    {...register('commitTime', {
                                                         required: false,
                                                     })}
                                                 />
                                                 <FormControlLabel value="30" control={<Radio />} label="30"
-                                                    {...register('setTime', {
+                                                    {...register('commitTime', {
                                                         required: false,
                                                     })}
                                                 />
                                                 <FormControlLabel value="60" control={<Radio />} label="60"
-                                                    {...register('setTime', {
+                                                    {...register('commitTime', {
                                                         required: false,
                                                     })}
                                                 />
                                                 <FormControlLabel value="90" control={<Radio />} label="90"
-                                                    {...register('setTime', {
+                                                    {...register('commitTime', {
                                                         required: false,
                                                     })}
                                                 />
@@ -175,8 +174,10 @@ export default function SettingPage() {
                                 <Button
                                     variant="contained"
                                     type="submit"
+                                    disabled={!isDirty || isSubmitting}
                                     style={{ width: 115, height: 40, backgroundColor: "#70acce" }}
                                 >変更</Button>
+                                {isSubmitting && <div>...変更中...</div>}
                             </div>
                         </form>
                     </div>

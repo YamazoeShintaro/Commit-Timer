@@ -10,13 +10,13 @@ export default function LoginFlow() {
 
     return (
         <div>
-            {user ? (
-                <Home />
-            ) : (
-              <div className="flex items-center justify-center">
-                <GoogleForm />
-              </div>
-            )}
+          {user ? (
+            <Home />
+          ) : (
+            <div className="flex">
+              <GoogleForm />
+            </div>
+          )}
         </div>
     );
 }
