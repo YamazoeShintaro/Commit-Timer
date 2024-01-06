@@ -47,36 +47,36 @@ export default function Home() {
         <div style={{ color: "#101841" }} className='bg-slate-50'>
             {userProfile ? (
                 // userprofileが取得できた時（既にデータベースのユーザー情報がある時）、Homeのプロフィール画面を表示
-                <div className="pt-16 h-screen flex justify-center">
+                <div className="pt-8 h-screen flex justify-center">
                     <div className='w-11/12 max-w-lg'>
                         <div
                             style={{ borderColor: "#101841" }}
-                            className="flex justify-around items-center border-b pt-7 pb-5 px-1"
+                            className="flex justify-around items-center border-b pt-8 pb-3 px-1"
                         >
                             <div className="w-3/12 flex justify-center mr-1">
-                                <Image className="rounded-full" src={auth.currentUser.photoURL} width={70} height={70} alt=""/>
+                                <Image className="rounded-full" src={auth.currentUser.photoURL} width={50} height={50} alt=""/>
                             </div>
-                            <div className="text-xl flex-col justify-center ml-1">
+                            <div className="flex-col justify-center ml-1">
                                 <p>{userProfile.name}</p>
                             </div>
                         </div>
-                        <div className='px-10 py-2'>
-                            <div style={{ borderColor: "#101841" }} className='flex py-4 px-2 border-b'>
+                        <div className='text-sm px-10 py-1'>
+                            <div style={{ borderColor: "#101841" }} className='flex py-3 border-b'>
                                 <p className='w-4/12 flex items-center'>長期目標：</p>
                                 <p className='w-8/12'>{userProfile.longGoal}</p>
                             </div>
-                            <div style={{ borderColor: "#101841" }} className='flex py-4 px-2 border-b'>
+                            <div style={{ borderColor: "#101841" }} className='flex py-3 border-b'>
                                 <p className='w-4/12 flex items-center'>短期目標：</p>
                                 <p className='w-8/12'>{userProfile.shortGoal}</p>
                             </div>
-                            <div style={{ borderColor: "#101841" }} className='py-4 px-2 border-b'>
+                            <div style={{ borderColor: "#101841" }} className='py-3 px-2 border-b'>
                                 <p>コミットタイム：{userProfile.commitTime}分</p>
                                 <p className='text-sm'>(1セットあたりの時間)</p>
                             </div>
-                            <p style={{ borderColor: "#101841" }} className='py-4 px-2 border-b'>
+                            <p style={{ borderColor: "#101841" }} className='py-3 px-2 border-b'>
                                 休憩時間：{userProfile.restTime}分
                             </p>
-                            <p style={{ borderColor: "#101841" }} className='py-4 px-2 border-b'>
+                            <p style={{ borderColor: "#101841" }} className='py-3 px-2 border-b'>
                                 セット数：{userProfile.repeatNumber}セット
                             </p>
                         </div>
@@ -90,8 +90,8 @@ export default function Home() {
                         className="flex justify-center items-center z-50 w-screen h-screen bg-slate-50 pt-12 pb-6 px-8"
                     >
                         <div
-                            style={{ backgroundColor: "#101841",fontWeight: 380, fontSize: 28 }}
-                            className='py-3 flex justify-center items-center text-slate-50 fixed top-0 left-0 right-0 z-30'
+                            style={{ backgroundColor: "#101841",fontWeight: 300, fontSize: 24 }}
+                            className='py-1.5 flex justify-center items-center text-slate-50 fixed top-0 left-0 right-0 z-30'
                         >
                             <h1 className={LogoFnt.className}>Commit Timer</h1>
                         </div>
@@ -99,7 +99,7 @@ export default function Home() {
                             <Button
                             variant="contained"
                             type="submit"
-                            style={{ width: 200, height: 55, textTransform: 'none', fontSize: 16, backgroundColor: "#70acce" }}
+                            style={{ width: 160, height: 50, textTransform: 'none', fontSize: 12, backgroundColor: "#70acce" }}
                             onClick={handleNewUser}
                             >はじめる</Button>
                         </div>

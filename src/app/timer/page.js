@@ -26,15 +26,15 @@ export default function TimerPage() {
     return (
         <div>
             {userProfile && (
-                <div style={{ color: "#101841" }} className="pt-20 w-screen h-screen bg-slate-50">
-                    <ul className="flex justify-center text-xl mb-2 pt-2">
+                <div style={{ color: "#101841" }} className="pt-12 w-screen h-screen bg-slate-50">
+                    <ul className="flex justify-center mb-1 pt-4">
                         <li>コミットタイム：{userProfile.commitTime}分&nbsp;</li>
                         <li>／ 休憩：{userProfile.restTime}分</li>
                     </ul>
                     <div className="flex justify-center">
                         <p
                             style={{ borderColor: "#101841" }}
-                            className="flex justify-center text-xl mb-8 pb-3 border-b w-11/12 max-w-md"
+                            className="flex justify-center mb-5 pb-3 border-b w-11/12 max-w-md"
                         >
                             【 {userProfile.repeatNumber}セット 】
                         </p>

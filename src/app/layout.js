@@ -20,10 +20,10 @@ export default function RootLayout({ children }) {
       <body>
         <header className={LogoFnt.className}>
           <div
-            style={{ backgroundColor: "#101841",fontWeight: 380, fontSize: 28 }}
+            style={{ backgroundColor: "#101841",fontWeight: 300, fontSize: 24 }}
             className='flex justify-center items-center text-slate-50 fixed top-0 left-0 right-0 z-30'
           >
-            <h1 className='my-3'><Link href="/">Commit Timer</Link></h1>
+            <h1 className='my-1.5'><Link href="/">Commit Timer</Link></h1>
           </div>
         </header>
         <div className={MainFnt.className}>

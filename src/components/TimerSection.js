@@ -74,42 +74,42 @@ export default function TimerSection({ commitTime, restTime, repeatNumber }) {
         <div style={{ color: "#101841" }} className="flex flex-col items-center justify-center">
             {/* displayによって表示内容を変更 */}
             {display === "開始前" && (
-                <p className="flex justify-center text-2xl mt-2 mb-10">頑張りましょう！</p>
+                <p className="flex justify-center text-xl mt-2 mb-8">頑張りましょう！</p>
             )}
             {display === "1セット目" && (
                 <div>
-                    <p className="flex justify-center text-2xl mb-8">〜1セット目〜</p>
+                    <p className="flex justify-center text-xl mb-5">〜1セット目〜</p>
                     <div className="flex">
-                        <p className="flex items-center pr-3 pl-6">残り</p>
-                        <p style={{ color: "#144da0" }} className="text-8xl mb-8">
+                        <p className="flex items-center pr-3 pl-6 text-sm">残り</p>
+                        <p style={{ color: "#144da0" }} className="text-7xl mb-6">
                             {count - (commitTime * (repeatNumber - 1)) - (restTime * (repeatNumber - 1))}
                         </p>
-                        <p className="flex items-center pl-4 pr-10">秒</p>
+                        <p className="flex items-center pl-4 pr-10 text-sm">秒</p>
                     </div>
                 </div>
             )}
             {display === "1セット後の休憩" && (
                 <div>
                     <Trivia triviaNum={triviaNum}/>
-                    <p className="text-lg pl-16 py-1">2セット目まで</p>
+                    <p className="text-sm pl-16 py-1">2セット目まで</p>
                     <div className="flex justify-center">
-                        <p className="flex items-center pr-3 pl-6">残り</p>
-                        <p style={{ color: "#144da0" }} className="text-8xl mb-8">
+                        <p className="flex items-center pr-3 pl-6 text-sm">残り</p>
+                        <p style={{ color: "#144da0" }} className="text-7xl mb-6">
                             {count - (commitTime * (repeatNumber - 1)) - (restTime * (repeatNumber - 2))}
                         </p>
-                        <p className="flex items-center pl-4 pr-5">秒</p>
+                        <p className="flex items-center pl-4 pr-5 text-sm">秒</p>
                     </div>
                 </div>
             )}
             {display === "2セット目" && (
                 <div>
-                    <p className="flex justify-center text-2xl mb-8">〜2セット目〜</p>
+                    <p className="flex justify-center text-xl mb-5">〜2セット目〜</p>
                     <div className="flex">
-                        <p className="flex items-center pr-3 pl-6">残り</p>
-                        <p style={{ color: "#144da0" }} className="text-8xl mb-8">
+                        <p className="flex items-center pr-3 pl-6 text-sm">残り</p>
+                        <p style={{ color: "#144da0" }} className="text-7xl mb-6">
                             {count - (commitTime * (repeatNumber - 2)) - (restTime * (repeatNumber - 2))}
                         </p>
-                        <p className="flex items-center pl-4 pr-10">秒</p>
+                        <p className="flex items-center pl-4 pr-10 text-sm">秒</p>
                     </div>
                 </div>
             )}
@@ -118,23 +118,23 @@ export default function TimerSection({ commitTime, restTime, repeatNumber }) {
                     <Trivia triviaNum={triviaNum}/>
                     <p className="text-lg pl-16 py-1">3セット目まで</p>
                     <div className="flex justify-center">
-                        <p className="flex items-center pr-3 pl-6">残り</p>
-                        <p style={{ color: "#144da0" }} className="text-8xl mb-8">
+                        <p className="flex items-center pr-3 pl-6 text-sm">残り</p>
+                        <p style={{ color: "#144da0" }} className="text-7xl mb-6">
                             {count - (commitTime * (repeatNumber - 2)) - (restTime * (repeatNumber - 3))}
                         </p>
-                        <p className="flex items-center pl-4 pr-5">秒</p>
+                        <p className="flex items-center pl-4 pr-5 text-sm">秒</p>
                     </div>
                 </div>
             )}
             {display === "3セット目" && (
                 <div>
-                    <p className="flex justify-center text-2xl mb-8">〜3セット目〜</p>
+                    <p className="flex justify-center text-xl mb-5">〜3セット目〜</p>
                     <div className="flex">
-                        <p className="flex items-center pr-3 pl-6">残り</p>
-                        <p style={{ color: "#144da0" }} className="text-8xl mb-8">
+                        <p className="flex items-center pr-3 pl-6 text-sm">残り</p>
+                        <p style={{ color: "#144da0" }} className="text-7xl mb-6">
                             {count - (commitTime * (repeatNumber - 3)) - (restTime * (repeatNumber - 3))}
                         </p>
-                        <p className="flex items-center pl-4 pr-10">秒</p>
+                        <p className="flex items-center pl-4 pr-10 text-sm">秒</p>
                     </div>
                 </div>
             )}
@@ -143,23 +143,23 @@ export default function TimerSection({ commitTime, restTime, repeatNumber }) {
                     <Trivia triviaNum={triviaNum}/>
                     <p className="text-lg pl-16 py-1">4セット目まで</p>
                     <div className="flex justify-center">
-                        <p className="flex items-center pr-3 pl-6">残り</p>
-                        <p style={{ color: "#144da0" }} className="text-8xl mb-8">
+                        <p className="flex items-center pr-3 pl-6 text-sm">残り</p>
+                        <p style={{ color: "#144da0" }} className="text-7xl mb-6">
                             {count - (commitTime * (repeatNumber - 3)) - (restTime * (repeatNumber - 4))}
                         </p>
-                        <p className="flex items-center pl-4 pr-5">秒</p>
+                        <p className="flex items-center pl-4 pr-5 text-sm">秒</p>
                     </div>
                 </div>
             )}
             {display === "4セット目" && (
                 <div>
-                    <p className="flex justify-center text-2xl mb-8">〜4セット目〜</p>
+                    <p className="flex justify-center text-xl mb-5">〜4セット目〜</p>
                     <div className="flex">
-                        <p className="flex items-center pr-3 pl-6">残り</p>
-                        <p style={{ color: "#144da0" }} className="text-8xl mb-8">
+                        <p className="flex items-center pr-3 pl-6 text-sm">残り</p>
+                        <p style={{ color: "#144da0" }} className="text-7xl mb-6">
                             {count - (commitTime * (repeatNumber - 4)) - (restTime * (repeatNumber - 4))}
                         </p>
-                        <p className="flex items-center pl-4 pr-10">秒</p>
+                        <p className="flex items-center pl-4 pr-10 text-sm">秒</p>
                     </div>
                 </div>
             )}
@@ -168,51 +168,51 @@ export default function TimerSection({ commitTime, restTime, repeatNumber }) {
                     <Trivia triviaNum={triviaNum}/>
                     <p className="text-lg pl-16 py-1">5セット目まで</p>
                     <div className="flex justify-center">
-                        <p className="flex items-center pr-3 pl-6">残り</p>
-                        <p style={{ color: "#144da0" }} className="text-8xl mb-8">
+                        <p className="flex items-center pr-3 pl-6 text-sm">残り</p>
+                        <p style={{ color: "#144da0" }} className="text-7xl mb-6">
                             {count - (commitTime * (repeatNumber - 4)) - (restTime * (repeatNumber - 5))}
                         </p>
-                        <p className="flex items-center pl-4 pr-5">秒</p>
+                        <p className="flex items-center pl-4 pr-5 text-sm">秒</p>
                     </div>
                 </div>
             )}
             {display === "5セット目" && (
                 <div>
-                    <p className="flex justify-center text-2xl mb-8">〜5セット目〜</p>
+                    <p className="flex justify-center text-xl mb-5">〜5セット目〜</p>
                     <div className="flex">
-                        <p className="flex items-center pr-3 pl-6">残り</p>
-                        <p style={{ color: "#144da0" }} className="text-8xl mb-8">
+                        <p className="flex items-center pr-3 pl-6 text-sm">残り</p>
+                        <p style={{ color: "#144da0" }} className="text-7xl mb-6">
                             {count - (Time * (repeatNumber - 5)) - (restTime * (repeatNumber - 5))}
                         </p>
-                        <p className="flex items-center pl-4 pr-10">秒</p>
+                        <p className="flex items-center pl-4 pr-10 text-sm">秒</p>
                     </div>
                 </div>
             )}
             {display === "終了後" && (
-                <p className="text-2xl mt-2 mb-12">お疲れ様でした！</p>
+                <p className="text-2xl mt-2 mb-8">お疲れ様でした！</p>
             )}
 
-            <div className="pb-6">
+            <div className="pb-4">
                 <Button
                     variant="contained"
-                    style={{ width: 133, height: 40, backgroundColor: "#70acce" }}
+                    style={{ fontSize: 11, width: 112, height: 38, backgroundColor: "#70acce" }}
                     onClick={start}
                 >スタート／再開</Button>
                 <Button
                     variant="contained"
-                    style={{ width: 90, height: 40, marginLeft: 15, backgroundColor: "#70acce" }}
+                    style={{ fontSize: 11, width: 80, height: 38, marginLeft: 9, backgroundColor: "#70acce" }}
                     onClick={pause}
                 >一時停止</Button>
                 <Button
                     variant="contained"
-                    style={{ width: 90, height: 40, marginLeft: 15, backgroundColor: "#70acce" }}
+                    style={{ fontSize: 11, width: 80, height: 38, marginLeft: 9, backgroundColor: "#70acce" }}
                     onClick={reset}
                 >リセット</Button>
             </div>
-            <p style={{ borderColor: "#101841" }} className="text-xs border-b pb-2 px-12">
-                <SoundWarningIcon style={{ color: "#f6d60f" }} />
+            <p style={{ borderColor: "#101841" }} className="text-xs border-b pb-2 px-6 mx-2">
+                <SoundWarningIcon style={{ fontSize: 16, color: "#f6d60f" }} />
                 音が出ますので音量にご注意ください
-                <SoundWarningIcon style={{ color: "#f6d60f" }} />
+                <SoundWarningIcon style={{ fontSize: 16, color: "#f6d60f" }} />
             </p>
         </div>
     );
