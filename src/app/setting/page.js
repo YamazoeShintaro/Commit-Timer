@@ -120,7 +120,7 @@ export default function SettingPage() {
                                 </div>
                                 <div className="border-b border-solid border-black">
                                     <FormControl>
-                                        <p className="mt-2 text-sm">インターバル(分)</p>
+                                        <p className="mt-2 text-sm">休憩時間(分)</p>
                                         <RadioGroup name="restTime" defaultValue={userProfile.restTime}>
                                             <div className="flex wrap">
                                                 <FormControlLabel value="1" control={<Radio />} label="1"
