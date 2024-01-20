@@ -39,9 +39,7 @@ export default function Home() {
     };
 
     // 現在Googleでログインしているユーザーのuidを使い、IDが一致するデータを取得
-    const userProfile = userProfiles.find(function(element){
-        return element.userId === user.uid;
-    });
+    const userProfile = userProfiles.find(element => element.userId === user.uid);
 
     return (
         <div style={{ color: "#101841" }} className='bg-slate-50'>
